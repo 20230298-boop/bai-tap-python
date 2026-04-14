@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <widget class="QWidget" name="centralwidget">
+
+   <widget class="QTableWidget" name="tableMember">
+    <property name="geometry">
+     <rect><x>20</x><y>20</y><width>560</width><height>250</height></rect>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnXoa">
+    <property name="geometry">
+     <rect><x>150</x><y>300</y><width>100</width><height>30</height></rect>
+    </property>
+    <property name="text"><string>Xóa</string></property>
+   </widget>
+
+   <widget class="QPushButton" name="btnSua">
+    <property name="geometry">
+     <rect><x>300</x><y>300</y><width>100</width><height>30</height></rect>
+    </property>
+    <property name="text"><string>Sửa</string></property>
+   </widget>
+
+  </widget>
+ </widget>
+</ui>

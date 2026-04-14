@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>400</width><height>500</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>Đăng ký</string>
+  </property>
+
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect><x>150</x><y>10</y><width>120</width><height>30</height></rect>
+   </property>
+   <property name="text">
+    <string>Đăng ký</string>
+   </property>
+  </widget>
+
+  <widget class="QLineEdit" name="txtHo">
+   <property name="geometry">
+    <rect><x>30</x><y>60</y><width>150</width><height>30</height></rect>
+   </property>
+   <property name="placeholderText"><string>Họ</string></property>
+  </widget>
+
+  <widget class="QLineEdit" name="txtTen">
+   <property name="geometry">
+    <rect><x>200</x><y>60</y><width>150</width><height>30</height></rect>
+   </property>
+   <property name="placeholderText"><string>Tên</string></property>
+  </widget>
+
+  <widget class="QLineEdit" name="txtEmail">
+   <property name="geometry">
+    <rect><x>30</x><y>110</y><width>320</width><height>30</height></rect>
+   </property>
+   <property name="placeholderText"><string>Email</string></property>
+  </widget>
+
+  <widget class="QLineEdit" name="txtPassword">
+   <property name="geometry">
+    <rect><x>30</x><y>160</y><width>320</width><height>30</height></rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText"><string>Mật khẩu</string></property>
+  </widget>
+
+  <widget class="QComboBox" name="cbNgay">
+   <property name="geometry">
+    <rect><x>30</x><y>220</y><width>80</width><height>25</height></rect>
+   </property>
+  </widget>
+
+  <widget class="QComboBox" name="cbThang">
+   <property name="geometry">
+    <rect><x>130</x><y>220</y><width>100</width><height>25</height></rect>
+   </property>
+  </widget>
+
+  <widget class="QComboBox" name="cbNam">
+   <property name="geometry">
+    <rect><x>250</x><y>220</y><width>100</width><height>25</height></rect>
+   </property>
+  </widget>
+
+  <widget class="QRadioButton" name="radNam">
+   <property name="geometry">
+    <rect><x>30</x><y>270</y><width>80</width><height>20</height></rect>
+   </property>
+   <property name="text"><string>Nam</string></property>
+  </widget>
+
+  <widget class="QRadioButton" name="radNu">
+   <property name="geometry">
+    <rect><x>120</x><y>270</y><width>80</width><height>20</height></rect>
+   </property>
+   <property name="text"><string>Nữ</string></property>
+  </widget>
+
+  <widget class="QCheckBox" name="chkDongY">
+   <property name="geometry">
+    <rect><x>30</x><y>310</y><width>250</width><height>30</height></rect>
+   </property>
+   <property name="text"><string>Tôi đồng ý điều khoản</string></property>
+  </widget>
+
+  <widget class="QPushButton" name="btnDangKy">
+   <property name="geometry">
+    <rect><x>130</x><y>370</y><width>120</width><height>35</height></rect>
+   </property>
+   <property name="text"><string>Đăng ký</string></property>
+  </widget>
+
+ </widget>
+</ui>

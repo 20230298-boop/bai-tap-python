@@ -1,0 +1,105 @@
+import sqlite3
+
+# Kết nối database
+conn = sqlite3.connect("nhansu.db")
+cursor = conn.cursor()
+
+# Tạo bảng
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS nhansu (
+    cccd TEXT PRIMARY KEY,
+    hoten TEXT,
+    ngaysinh TEXT,
+    gioitinh TEXT,
+    diachi TEXT
+)
+""")
+
+# Thêm nhân sự
+def them():
+    cccd = input("CCCD: ")
+    hoten = input("Họ tên: ")
+    ngaysinh = input("Ngày sinh: ")
+    gioitinh = input("Giới tính: ")
+    diachi = input("Địa chỉ: ")
+
+    cursor.execute("INSERT INTO nhansu VALUES (?, ?, ?, ?, ?)",
+                   (cccd, hoten, ngaysinh, gioitinh, diachi))
+    conn.commit()
+    print("✔ Thêm thành công")
+
+# Sửa nhân sự
+def sua():
+    cccd = input("Nhập CCCD cần sửa: ")
+    hoten = input("Họ tên mới: ")
+    ngaysinh = input("Ngày sinh mới: ")
+    gioitinh = input("Giới tính mới: ")
+    diachi = input("Địa chỉ mới: ")
+
+    cursor.execute("""
+    UPDATE nhansu 
+    SET hoten=?, ngaysinh=?, gioitinh=?, diachi=? 
+    WHERE cccd=?
+    """, (hoten, ngaysinh, gioitinh, diachi, cccd))
+    
+    conn.commit()
+    print("✔ Cập nhật thành công")
+
+# Xóa nhân sự
+def xoa():
+    cccd = input("Nhập CCCD cần xóa: ")
+    cursor.execute("DELETE FROM nhansu WHERE cccd=?", (cccd,))
+    conn.commit()
+    print("✔ Đã xóa")
+
+# Hiển thị danh sách
+def hien_thi():
+    cursor.execute("SELECT * FROM nhansu")
+    rows = cursor.fetchall()
+    print("\nDanh sách nhân sự:")
+    for row in rows:
+        print(row)
+
+# Tìm kiếm
+def tim_kiem():
+    key = input("Nhập CCCD / tên / địa chỉ: ")
+    cursor.execute("""
+    SELECT * FROM nhansu 
+    WHERE cccd LIKE ? OR hoten LIKE ? OR diachi LIKE ?
+    """, (f"%{key}%", f"%{key}%", f"%{key}%"))
+    
+    rows = cursor.fetchall()
+    print("\nKết quả tìm kiếm:")
+    for row in rows:
+        print(row)
+
+# Menu
+def menu():
+    while True:
+        print("""
+1. Thêm nhân sự
+2. Sửa nhân sự
+3. Xóa nhân sự
+4. Hiển thị danh sách
+5. Tìm kiếm
+0. Thoát
+        """)
+        chon = input("Chọn: ")
+
+        if chon == "1":
+            them()
+        elif chon == "2":
+            sua()
+        elif chon == "3":
+            xoa()
+        elif chon == "4":
+            hien_thi()
+        elif chon == "5":
+            tim_kiem()
+        elif chon == "0":
+            break
+        else:
+            print("❌ Lựa chọn không hợp lệ")
+
+menu()
+conn.close()

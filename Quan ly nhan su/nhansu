@@ -1,0 +1,7 @@
+CREATE TABLE nhansu (
+    cccd TEXT PRIMARY KEY,
+    hoten TEXT,
+    ngaysinh TEXT,
+    gioitinh TEXT,
+    diachi TEXT
+);
